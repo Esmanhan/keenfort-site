@@ -20,7 +20,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "EducationalOrganization", "name": "Keenfort", "url": "https://keenfort-site.vercel.app", "logo": "https://keenfort-site.vercel.app/og.png", "description": "Keenfort — школа английского: интенсивы IELTS и General English в Астане, Алматы, Шымкенте и онлайн. Преподаватели IELTS 8.0+, рейтинг 4.9 в 2ГИС. Бесплатный пробный урок.", "telephone": "+77067458080", "sameAs": ["https://www.instagram.com/keenfort/"], "location": [{"@type": "Place", "name": "Keenfort Астана", "address": {"@type": "PostalAddress", "streetAddress": "проспект Достык, 4", "addressLocality": "Астана", "addressCountry": "KZ"}}, {"@type": "Place", "name": "Keenfort Астана", "address": {"@type": "PostalAddress", "streetAddress": "проспект Ракымжан Кошкарбаев, 10/1", "addressLocality": "Астана", "addressCountry": "KZ"}}, {"@type": "Place", "name": "Keenfort Алматы", "address": {"@type": "PostalAddress", "streetAddress": "улица Басенова, 10 к2", "addressLocality": "Алматы", "addressCountry": "KZ"}}, {"@type": "Place", "name": "Keenfort Алматы", "address": {"@type": "PostalAddress", "streetAddress": "улица Шевченко, 90, БЦ Каратал", "addressLocality": "Алматы", "addressCountry": "KZ"}}, {"@type": "Place", "name": "Keenfort Шымкент", "address": {"@type": "PostalAddress", "streetAddress": "микрорайон Восток, 31/7", "addressLocality": "Шымкент", "addressCountry": "KZ"}}]}</script>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});try{if(localStorage.getItem('kf-cookies')==='ok')gtag('consent','update',{analytics_storage:'granted'})}catch(e){}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
 <style>html{color-scheme:light}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}</style>
 
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -364,6 +364,28 @@ nav.main>a,nav.main>button{white-space:nowrap}
   footer .wrap{flex-direction:column;align-items:flex-start;gap:12px}
 }
 #courses{border-top:1px solid var(--line)}
+.cookie{position:fixed;left:calc(16px + env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:85;width:min(420px,calc(100vw - 32px - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px)));background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:18px;padding:16px 18px;box-shadow:0 24px 50px -24px rgba(10,40,30,.55);display:flex;flex-direction:column;gap:12px;transform:translateY(calc(100% + 40px));transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.cookie.show{transform:none}
+.cookie p{margin:0;font-size:14px;line-height:1.5;color:var(--muted)}
+.cookie p button{all:unset;color:var(--green);font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.cookie .row{display:flex;gap:8px;justify-content:flex-end}
+.cookie .ok{background:var(--green);color:#fff;padding:10px 22px;font-size:14px}
+.cookie .ok:hover{background:var(--green-d)}
+body.cookie-open .fab{opacity:0;pointer-events:none}
+.policy{position:fixed;inset:0;z-index:95;background:rgba(16,40,32,.55);backdrop-filter:blur(6px);display:grid;place-items:center;padding:calc(16px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s linear .3s}
+.policy.open{opacity:1;visibility:visible;transition:opacity .3s}
+.policy-card{width:min(100%,720px);max-height:100%;overflow-y:auto;background:#fff;border-radius:22px;padding:28px 28px 24px;position:relative;transform:translateY(16px);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.policy.open .policy-card{transform:none}
+.policy-card h2{hyphens:manual;font-size:clamp(20px,5.4vw,24px);color:var(--green-d);margin:0 40px 6px 0}
+.policy-card .upd{color:var(--muted);font-size:13px;margin:0 0 18px}
+.policy-card h3{font-family:var(--body);font-size:16px;font-weight:600;color:var(--ink);margin:20px 0 6px}
+.policy-card p,.policy-card li{color:var(--muted);font-size:15px;line-height:1.6;margin:0}
+.policy-card ul{margin:0;padding-left:20px;display:grid;gap:4px}
+.policy-card .x{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;border:0;background:var(--mint);color:var(--green-d);font-size:22px;cursor:pointer}
+.foot-links{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.foot-links button{all:unset;cursor:pointer;opacity:.85}
+.foot-links button:hover{opacity:1;text-decoration:underline}
+@media (max-width:760px){.cookie{left:calc(12px + env(safe-area-inset-left,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));width:calc(100vw - 24px - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px))}.cookie .ok{flex:1}.policy-card{padding:22px 18px 20px}}
 </style>
 
 </head>
@@ -513,9 +535,21 @@ nav.main>a,nav.main>button{white-space:nowrap}
   <div class="wrap">
     <a href="#top" class="logo" style="font-size:18px"><span class="mark" style="width:22px;height:25px" aria-hidden="true"></span>keenfort</a>
     <span>WhatsApp: +7 706 745 80 80</span>
-    <a href="https://www.instagram.com/keenfort/" target="_blank" rel="noopener"><svg class="ig"><use href="#ig"/></svg>@keenfort</a>
+    <div class="foot-links">
+      <a href="https://www.instagram.com/keenfort/" target="_blank" rel="noopener"><svg class="ig"><use href="#ig"/></svg>@keenfort</a>
+      <button id="openPolicy" data-i="pol_link">Политика конфиденциальности</button>
+    </div>
   </div>
 </footer>
+
+<div class="cookie" id="cookie" role="region" aria-label="Cookies">
+  <p><span data-i="ck_text"></span> <button id="ckMore" data-i="ck_more"></button></p>
+  <div class="row"><button class="btn ok" id="ckOk" data-i="ck_ok"></button></div>
+</div>
+
+<div class="policy" id="policy" role="dialog" aria-modal="true" aria-labelledby="polTitle">
+  <div class="policy-card"><button class="x" id="polX" aria-label="Close">×</button><div id="polBody"></div></div>
+</div>
 
 <div class="city-modal" id="cityModal" role="dialog" aria-modal="true" aria-labelledby="cmTitle">
   <div class="cm-card">
@@ -537,7 +571,7 @@ const WA='https://wa.me/77067458080';
 /* ---------- translations ---------- */
 const T={
 ru:{
-  nav_branches:'Филиалы',nav_courses:'Курсы и цены',nav_reviews:'Отзывы',nav_results:'Результаты',nav_teachers:'Преподаватели',tc_h2:'Учат те, кто сам сдал IELTS на 8.0+',tc_p:'Выпускники университетов США и Европы с опытом преподавания от 3 лет. Нажмите на карточку, чтобы рассмотреть.',nav_faq:'Частые вопросы',nav_trial:'Пробный урок',
+  nav_branches:'Филиалы',nav_courses:'Курсы и цены',nav_reviews:'Отзывы',nav_results:'Результаты',ck_text:'Мы используем cookies, чтобы понимать, как посетители пользуются сайтом, и делать его удобнее.',ck_more:'Подробнее',ck_ok:'Понятно',pol_link:'Политика конфиденциальности',nav_teachers:'Преподаватели',tc_h2:'Учат те, кто сам сдал IELTS на 8.0+',tc_p:'Выпускники университетов США и Европы с опытом преподавания от 3 лет. Нажмите на карточку, чтобы рассмотреть.',nav_faq:'Частые вопросы',nav_trial:'Пробный урок',
   eyebrow:'IELTS · General English · Оффлайн и онлайн',
   h1:'Английский язык для <em>всех возрастов</em>',
   lead:'Интенсивы IELTS с подробной проверкой эссе и пробными экзаменами, и General English для тех, кто хочет заговорить уверенно.',
@@ -566,7 +600,7 @@ ru:{
   ge:['Преподаватель с IELTS 8.0+','Уроки 3 раза в неделю по 60 минут + материалы','Занятия с носителем языка 1 раз в неделю','Прохождение 1 уровня английского','+600 слов в активном словаре','6 промежуточных тестирований']
 },
 kz:{
-  nav_branches:'Филиалдар',nav_courses:'Курстар мен бағалар',nav_reviews:'Пікірлер',nav_results:'Нәтижелер',nav_teachers:'Мұғалімдер',tc_h2:'IELTS-ті өзі 8.0+ тапсырғандар оқытады',tc_p:'АҚШ пен Еуропа университеттерінің түлектері, сабақ беру тәжірибесі 3 жылдан бастап. Үлкейту үшін карточканы басыңыз.',nav_faq:'Жиі сұрақтар',nav_trial:'Сынақ сабақ',
+  nav_branches:'Филиалдар',nav_courses:'Курстар мен бағалар',nav_reviews:'Пікірлер',nav_results:'Нәтижелер',ck_text:'Келушілердің сайтты қалай пайдаланатынын түсініп, оны ыңғайлырақ ету үшін cookies қолданамыз.',ck_more:'Толығырақ',ck_ok:'Түсінікті',pol_link:'Құпиялылық саясаты',nav_teachers:'Мұғалімдер',tc_h2:'IELTS-ті өзі 8.0+ тапсырғандар оқытады',tc_p:'АҚШ пен Еуропа университеттерінің түлектері, сабақ беру тәжірибесі 3 жылдан бастап. Үлкейту үшін карточканы басыңыз.',nav_faq:'Жиі сұрақтар',nav_trial:'Сынақ сабақ',
   eyebrow:'IELTS · General English · Офлайн және онлайн',
   h1:'<em>Барлық жастағыларға</em> арналған ағылшын тілі',
   lead:'Эсселерді егжей-тегжейлі тексеретін, сынақ емтихандары бар IELTS интенсивтері және сенімді сөйлегісі келетіндерге арналған General English.',
@@ -595,7 +629,7 @@ kz:{
   ge:['IELTS 8.0+ мұғалім','Аптасына 3 рет 60 минуттық сабақтар + материалдар','Тіл тасушымен сабақтар аптасына 1 рет','Ағылшын тілінің 1 деңгейін өту','Белсенді сөз қорын 600+ сөзге арттыру','6 кезеңдік сынақ']
 },
 en:{
-  nav_branches:'Branches',nav_courses:'Courses & prices',nav_reviews:'Reviews',nav_results:'Results',nav_teachers:'Teachers',tc_h2:'Taught by people who scored IELTS 8.0+ themselves',tc_p:'Graduates of universities in the US and Europe with at least 3 years of teaching experience. Tap a card to see it up close.',nav_faq:'FAQ',nav_trial:'Free trial',
+  nav_branches:'Branches',nav_courses:'Courses & prices',nav_reviews:'Reviews',nav_results:'Results',ck_text:'We use cookies to understand how visitors use the site and to make it better.',ck_more:'Learn more',ck_ok:'Got it',pol_link:'Privacy policy',nav_teachers:'Teachers',tc_h2:'Taught by people who scored IELTS 8.0+ themselves',tc_p:'Graduates of universities in the US and Europe with at least 3 years of teaching experience. Tap a card to see it up close.',nav_faq:'FAQ',nav_trial:'Free trial',
   eyebrow:'IELTS · General English · In person and online',
   h1:'English for <em>all ages</em>',
   lead:'IELTS intensives with detailed essay feedback and mock exams, plus General English for anyone who wants to speak with confidence.',
@@ -853,13 +887,61 @@ function renderTeachers(){
 tGrid.addEventListener('click',e=>{const b=e.target.closest('.t-card');if(!b)return;const im=b.querySelector('img');
   lbBody.innerHTML=`<img src="${im.src}" alt="${im.alt}">`;lb.classList.add('open');document.getElementById('lbX').focus()});
 
+/* ---------- cookies + privacy policy ---------- */
+const POL={
+ru:{t:'Политика конфиденциальности',u:'Обновлено 23 октября 2026 г.',s:[
+ ['Кто мы','Сайт принадлежит школе английского языка Keenfort (филиалы в Астане, Алматы и Шымкенте). По любым вопросам о ваших данных пишите нам в WhatsApp: +7 706 745 80 80 или в Instagram @keenfort.'],
+ ['Какие данные собираются на сайте',['<b>Аналитика.</b> С помощью Google Analytics мы видим обезличенную статистику: какие страницы открывают, сколько времени на них проводят, с какого устройства и из какого города заходят, откуда пришли на сайт. По этим данным нельзя узнать ваше имя или телефон.','<b>Ваши настройки.</b> Сайт запоминает в вашем браузере выбранный язык и город, чтобы не спрашивать их снова. Эти данные не передаются нам.','<b>Форм на сайте нет.</b> Мы не просим вводить имя, телефон или почту на сайте.']],
+ ['Переписка в WhatsApp','Когда вы нажимаете кнопку записи, открывается чат WhatsApp с готовым сообщением. Отправлять его или нет, решаете вы. Если вы напишете нам, мы увидим ваше имя в WhatsApp, номер телефона и текст сообщения. Мы используем их только для того, чтобы ответить вам, записать на пробный урок и подобрать курс.'],
+ ['Cookies','Cookies — небольшие файлы, которые сайт сохраняет в браузере. Мы используем только аналитические cookies Google Analytics. Они включаются после того, как вы нажмёте «Понятно». До этого Google получает только обезличенные сигналы без cookies. Удалить cookies или запретить их можно в настройках браузера, сайт продолжит работать.'],
+ ['Кому передаются данные',['<b>Google</b> — обработка статистики посещений (Google Analytics).','<b>WhatsApp (Meta)</b> — переписка, если вы нам написали.','<b>Хостинг Vercel</b> — технические журналы сервера, необходимые для работы сайта.','Мы не продаём и не передаём ваши данные для рекламы третьим лицам. Ссылки на 2ГИС и Instagram ведут на сторонние сайты со своими правилами.']],
+ ['Сколько храним','Статистика Google Analytics хранится до 14 месяцев. Переписку в WhatsApp мы храним, пока вы учитесь у нас или пока не попросите её удалить.'],
+ ['Ваши права','По Закону Республики Казахстан «О персональных данных и их защите» вы можете узнать, какие ваши данные у нас есть, попросить их исправить или удалить, а также отозвать согласие. Для этого напишите нам в WhatsApp, мы ответим в течение 10 рабочих дней.'],
+ ['Изменения','Если политика изменится, мы обновим дату вверху этой страницы.']]},
+kz:{t:'Құпиялылық саясаты',u:'2026 жылғы 23 қазанда жаңартылды',s:[
+ ['Біз кімбіз','Сайт Keenfort ағылшын тілі мектебіне тиесілі (Астана, Алматы және Шымкенттегі филиалдар). Деректеріңізге қатысты кез келген сұрақ бойынша WhatsApp арқылы жазыңыз: +7 706 745 80 80 немесе Instagram: @keenfort.'],
+ ['Сайтта қандай деректер жиналады',['<b>Аналитика.</b> Google Analytics арқылы біз жеке басыңызды анықтамайтын статистиканы көреміз: қай беттер ашылады, оларда қанша уақыт өткізіледі, қандай құрылғыдан және қай қаладан кіреді, сайтқа қайдан келді. Бұл деректер бойынша атыңызды немесе телефоныңызды білу мүмкін емес.','<b>Сіздің баптауларыңыз.</b> Сайт қайта сұрамау үшін таңдаған тіл мен қаланы браузеріңізде есте сақтайды. Бұл деректер бізге берілмейді.','<b>Сайтта форма жоқ.</b> Біз сайтта атыңызды, телефоныңызды немесе поштаңызды енгізуді сұрамаймыз.']],
+ ['WhatsApp-тағы хат алмасу','Жазылу батырмасын басқанда дайын хабарламасы бар WhatsApp чаты ашылады. Оны жіберу-жібермеуді өзіңіз шешесіз. Бізге жазсаңыз, WhatsApp-тағы атыңызды, телефон нөміріңізді және хабарлама мәтінін көреміз. Оларды тек сізге жауап беру, сынақ сабаққа жазу және курс таңдау үшін пайдаланамыз.'],
+ ['Cookies','Cookies — сайт браузерде сақтайтын шағын файлдар. Біз тек Google Analytics аналитикалық cookies-ін қолданамыз. Олар «Түсінікті» батырмасын басқаннан кейін қосылады. Оған дейін Google cookies-сіз, жеке басыңызды анықтамайтын сигналдарды ғана алады. Cookies-ті браузер баптауларында өшіруге немесе тыйым салуға болады, сайт жұмысын жалғастырады.'],
+ ['Деректер кімге беріледі',['<b>Google</b> — сайтқа кіру статистикасын өңдеу (Google Analytics).','<b>WhatsApp (Meta)</b> — бізге жазсаңыз, хат алмасу.','<b>Vercel хостингі</b> — сайт жұмысына қажетті техникалық сервер журналдары.','Біз деректеріңізді сатпаймыз және жарнама үшін үшінші тұлғаларға бермейміз. 2ГИС пен Instagram сілтемелері өз ережелері бар сыртқы сайттарға апарады.']],
+ ['Қанша уақыт сақтаймыз','Google Analytics статистикасы 14 айға дейін сақталады. WhatsApp-тағы хат алмасуды сіз бізде оқып жүргенде немесе оны жоюды сұрағанша сақтаймыз.'],
+ ['Сіздің құқықтарыңыз','Қазақстан Республикасының «Дербес деректер және оларды қорғау туралы» Заңына сәйкес сіз біздегі деректеріңіз туралы біле аласыз, оларды түзетуді немесе жоюды сұрай аласыз, сондай-ақ келісіміңізді кері қайтара аласыз. Ол үшін бізге WhatsApp-қа жазыңыз, 10 жұмыс күні ішінде жауап береміз.'],
+ ['Өзгерістер','Саясат өзгерсе, осы беттің жоғарғы жағындағы күнді жаңартамыз.']]},
+en:{t:'Privacy policy',u:'Updated October 23, 2026',s:[
+ ['Who we are','This site belongs to Keenfort English school (branches in Astana, Almaty and Shymkent). For any question about your data, message us on WhatsApp at +7 706 745 80 80 or on Instagram @keenfort.'],
+ ['What the site collects',['<b>Analytics.</b> With Google Analytics we see anonymous statistics: which pages are opened, how long people stay, what device and city they visit from, and how they found the site. This data cannot tell us your name or phone number.','<b>Your settings.</b> The site remembers your chosen language and city in your browser so it doesn’t ask again. This data is not sent to us.','<b>There are no forms.</b> We never ask you to enter your name, phone or email on the site.']],
+ ['WhatsApp messages','When you tap a sign-up button, WhatsApp opens with a ready-made message. Whether to send it is up to you. If you message us, we see your WhatsApp name, phone number and message. We use them only to reply, book your trial lesson and help you choose a course.'],
+ ['Cookies','Cookies are small files a site saves in your browser. We only use Google Analytics cookies, and they turn on after you tap “Got it”. Before that, Google receives only anonymous cookieless signals. You can delete or block cookies in your browser settings and the site will keep working.'],
+ ['Who receives data',['<b>Google</b> processes visit statistics (Google Analytics).','<b>WhatsApp (Meta)</b> handles messages if you contact us.','<b>Vercel</b> hosting keeps technical server logs needed to run the site.','We don’t sell your data or share it with third parties for advertising. Links to 2GIS and Instagram lead to other sites with their own rules.']],
+ ['How long we keep it','Google Analytics statistics are kept for up to 14 months. We keep WhatsApp conversations while you study with us or until you ask us to delete them.'],
+ ['Your rights','Under the Law of the Republic of Kazakhstan “On Personal Data and Their Protection”, you can ask what data we hold about you, have it corrected or deleted, and withdraw your consent. Message us on WhatsApp and we’ll reply within 10 working days.'],
+ ['Changes','If this policy changes, we’ll update the date at the top of this page.']]}
+};
+const cookieEl=document.getElementById('cookie'),policyEl=document.getElementById('policy'),polBody=document.getElementById('polBody');
+function renderPolicy(){const p=POL[L];polBody.innerHTML=`<h2 id="polTitle">${p.t}</h2><p class="upd">${p.u}</p>`+p.s.map(([h,b])=>`<h3>${h}</h3>`+(Array.isArray(b)?`<ul>${b.map(x=>`<li>${x}</li>`).join('')}</ul>`:`<p>${b}</p>`)).join('')}
+const openPolicy=()=>{policyEl.classList.add('open');policyEl.querySelector('.policy-card').scrollTop=0;document.getElementById('polX').focus()};
+const closePolicy=()=>policyEl.classList.remove('open');
+document.getElementById('openPolicy').addEventListener('click',openPolicy);
+document.getElementById('ckMore').addEventListener('click',openPolicy);
+document.getElementById('polX').addEventListener('click',closePolicy);
+policyEl.addEventListener('click',e=>{if(e.target===policyEl)closePolicy()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closePolicy()});
+let ckDone=false;try{ckDone=localStorage.getItem('kf-cookies')==='ok'}catch(e){}
+if(!ckDone)setTimeout(()=>{cookieEl.classList.add('show');document.body.classList.add('cookie-open')},1200);
+document.getElementById('ckOk').addEventListener('click',()=>{
+  try{localStorage.setItem('kf-cookies','ok')}catch(e){}
+  if(window.gtag)gtag('consent','update',{analytics_storage:'granted'});
+  cookieEl.classList.remove('show');document.body.classList.remove('cookie-open');
+});
+if(location.hash==='#privacy')setTimeout(openPolicy,300);
+
 /* ---------- apply language ---------- */
 function setLang(l){
   L=l;try{localStorage.setItem('kf-lang',l)}catch(e){}
   document.documentElement.lang=l==='kz'?'kk':l;
   document.querySelectorAll('[data-i]').forEach(el=>{const v=T[l][el.dataset.i];if(typeof v==='string')el.innerHTML=v});
   document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===l));
-  renderCityUI();renderCities();renderPlans();renderReviews();renderFaq();renderPride();renderTeachers();
+  renderCityUI();renderCities();renderPlans();renderReviews();renderFaq();renderPride();renderTeachers();renderPolicy();
 }
 document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>{
   document.body.classList.add('lang-fade');
