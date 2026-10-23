@@ -92,7 +92,7 @@ nav.main>a.btn-green:hover,.btn-green:hover{background:var(--mint);color:var(--g
 .hero h1 em{font-style:normal;color:#d4f0e3}
 .hero p.lead{max-width:560px;margin:0 auto 34px;font-size:18px;color:rgba(255,255,255,.92)}
 .cta{background:#fff;color:var(--green-d);padding:20px 34px;font-size:17px;box-shadow:0 14px 34px -14px rgba(47,95,80,.7);position:relative}
-.cta:hover{background:#fff;transform:translateY(-2px) scale(1.02)}
+.cta:hover{background-color:#fff;transform:translateY(-2px) scale(1.02)}
 .cta::after{content:"";position:absolute;inset:-6px;border-radius:999px;border:2px solid rgba(255,255,255,.6);animation:ring 2.4s ease-out infinite}
 @keyframes ring{0%{opacity:.8;transform:scale(.96)}100%{opacity:0;transform:scale(1.14)}}
 .wa-ic{width:22px;height:22px;color:var(--wa)}
@@ -390,6 +390,60 @@ body.cookie-open .fab{opacity:0;pointer-events:none}
 .pol-note{background:var(--mint);color:var(--green-d)!important;border-radius:10px;padding:8px 12px;margin:0 48px 14px 0!important;font-size:14px!important}
 .policy-card p+p{margin-top:8px}
 .policy-card ul{margin:6px 0}
+/* --- Kaspi installments --- */
+:root{--kaspi:#e8452c}
+.inst{display:flex;flex-direction:column;gap:8px;padding:12px 14px;border-radius:14px;background:var(--mint);border:1px solid var(--line)}
+.plan.solo .inst{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2)}
+.inst-top{display:flex;align-items:center;justify-content:space-between;gap:6px 8px;flex-wrap:wrap}
+.inst-seg button{white-space:nowrap}
+.inst-lbl{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--ink)}
+.plan.solo .inst-lbl{color:#fff}
+.inst-lbl i{font-style:normal;background:var(--kaspi);color:#fff;font-size:11px;font-weight:700;letter-spacing:.02em;padding:2px 7px;border-radius:6px}
+.inst-seg{display:inline-flex;background:#fff;border-radius:999px;padding:2px;border:1px solid var(--line)}
+.plan.solo .inst-seg{background:rgba(255,255,255,.15);border-color:transparent}
+.inst-seg button{border:0;background:transparent;font:600 12px var(--body);color:var(--muted);padding:4px 9px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s;font-variant-numeric:tabular-nums}
+.plan.solo .inst-seg button{color:rgba(255,255,255,.8)}
+.inst-seg button[aria-pressed="true"]{background:var(--green);color:#fff}
+.plan.solo .inst-seg button[aria-pressed="true"]{background:#fff;color:var(--green-d)}
+.inst-val{font-family:var(--display);font-weight:800;font-size:22px;color:var(--green-d);font-variant-numeric:tabular-nums;line-height:1.1}
+.inst-val small{font:500 13px var(--body);color:var(--muted);margin-left:2px}
+.plan.solo .inst-val,.plan.solo .inst-val small{color:#fff}
+.inst-val.bump{animation:bump .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes bump{0%{transform:translateY(6px);opacity:.3}100%{transform:none;opacity:1}}
+.inst-note{font-size:12px;color:var(--muted)}
+.plan.solo .inst-note{color:rgba(255,255,255,.75)}
+/* --- design details & motion --- */
+.scroll-bar{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:linear-gradient(90deg,#bfe8d6,#fff);transform-origin:0 50%;transform:scaleX(var(--sp,0));pointer-events:none}
+.kicker{display:inline-flex;align-items:center;gap:8px}
+.kicker::before{content:"";width:14px;height:16px;background:currentColor;-webkit-mask:var(--mark) center/contain no-repeat;mask:var(--mark) center/contain no-repeat;flex:none}
+.hero h1 em{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 8 C 40 2, 80 12, 120 6 S 180 3, 198 7' fill='none' stroke='%23bfe8d6' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") left 100% / 0% 12px no-repeat;padding-bottom:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone;animation:draw 1.1s .7s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes draw{to{background-size:100% 12px}}
+.hero::before{content:"";position:absolute;z-index:0;width:620px;height:620px;left:50%;top:-260px;margin-left:-310px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.22),transparent);animation:glow 9s ease-in-out infinite;pointer-events:none}
+@keyframes glow{0%,100%{transform:translate(-90px,0) scale(1)}50%{transform:translate(90px,40px) scale(1.15)}}
+.band b .stars{display:inline-block}
+.stars{background:linear-gradient(90deg,#ffd66b 50%,rgba(255,255,255,.3) 50%) 100% 0/200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:fill 1.4s 1s ease forwards}
+@keyframes fill{to{background-position:0 0}}
+.cta{background-image:linear-gradient(110deg,transparent 35%,rgba(63,122,102,.16) 50%,transparent 65%);background-size:260% 100%;background-position:130% 0;transition:background-position .9s ease,transform .2s,box-shadow .2s}
+.cta:hover{background-position:-30% 0}
+.ticker{background:var(--green-d);color:#d9efe5;overflow:hidden;border-block:1px solid rgba(255,255,255,.08)}
+.ticker-track{display:flex;width:max-content;gap:0;animation:tick 38s linear infinite;padding-block:14px}
+@keyframes tick{to{transform:translateX(-50%)}}
+.ticker span{display:inline-flex;align-items:center;gap:14px;padding-inline:14px;font:600 14px var(--body);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.ticker span::after{content:"";width:12px;height:14px;background:#7fc3a6;-webkit-mask:var(--mark) center/contain no-repeat;mask:var(--mark) center/contain no-repeat;margin-left:14px}
+.js .stg.pending>*{transform:translateY(28px) scale(.98)}
+.stg>*{transition:transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0) * 70ms)}
+.t-card .t-ph{position:relative}
+.t-card .t-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(20,50,40,.25));opacity:0;transition:opacity .4s}
+.t-card:hover .t-ph::after{opacity:1}
+.plan{position:relative;overflow:hidden}
+.plan::before{content:"";position:absolute;width:220px;height:220px;right:-90px;top:-90px;background:currentColor;opacity:.04;-webkit-mask:var(--mark) center/contain no-repeat;mask:var(--mark) center/contain no-repeat;transition:transform .8s cubic-bezier(.2,.8,.2,1);pointer-events:none;color:var(--green)}
+.plan.solo::before{color:#fff;opacity:.08}
+.plan:hover::before{transform:rotate(-12deg) scale(1.08)}
+.city .pin{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.branch:hover .pin{transform:translateY(-3px)}
+.qa .ans{transition:grid-template-rows .45s cubic-bezier(.2,.8,.2,1)}
+section h2{position:relative}
+@media (prefers-reduced-motion:reduce){.hero h1 em{background-size:100% 12px}.stars{background-position:0 0}.js .stg.pending>*{transform:none}}
 </style>
 
 </head>
@@ -401,6 +455,7 @@ body.cookie-open .fab{opacity:0;pointer-events:none}
 </svg>
 
 <header>
+  <span class="scroll-bar" id="scrollBar" aria-hidden="true"></span>
   <div class="wrap bar">
     <a class="logo" href="#top" aria-label="Keenfort"><span class="mark" aria-hidden="true"></span>keenfort</a>
     <nav class="main" id="nav">
@@ -447,13 +502,15 @@ body.cookie-open .fab{opacity:0;pointer-events:none}
   </div>
 </section>
 
+<div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+
 <section class="teachers" id="teachers">
   <div class="wrap">
     <div class="sec-head reveal">
       <div><span class="kicker" data-i="nav_teachers"></span><h2 data-i="tc_h2"></h2></div>
       <p data-i="tc_p"></p>
     </div>
-    <div class="t-grid" id="tGrid"></div>
+    <div class="t-grid stg" id="tGrid"></div>
   </div>
 </section>
 
@@ -487,7 +544,7 @@ body.cookie-open .fab{opacity:0;pointer-events:none}
       <div><span class="kicker" data-i="nav_branches"></span><h2 data-i="br_h2"></h2></div>
       <p data-i="br_p"></p>
     </div>
-    <div class="cities" id="cities"></div>
+    <div class="cities stg" id="cities"></div>
   </div>
 </section>
 
@@ -521,7 +578,7 @@ body.cookie-open .fab{opacity:0;pointer-events:none}
       <p data-i="faq_p"></p>
       <a class="btn btn-green" href="https://wa.me/77067458080" target="_blank" rel="noopener"><svg class="wa-ic"><use href="#wa"/></svg><span data-i="faq_btn"></span></a>
     </div>
-    <div class="qa-list" id="qa"></div>
+    <div class="qa-list stg" id="qa"></div>
   </div>
 </section>
 
@@ -694,11 +751,20 @@ const PLANS={
 };
 let course='ielts',fmt='offline';
 const plansEl=document.getElementById('plans');
+let INST=12;
+const IT={ru:{lbl:'Рассрочка',mo:'₸/мес',m:'мес',note:n=>`${n} платежей по Kaspi`},kz:{lbl:'Бөліп төлеу',mo:'₸/ай',m:'ай',note:n=>`Kaspi арқылы ${n} төлем`},en:{lbl:'Installments',mo:'₸/mo',m:'mo',note:n=>`${n} payments via Kaspi`}};
+const fmtT=n=>Math.ceil(n).toLocaleString('ru-RU').replace(/,/g,' ');
+function instHTML(p){const t=IT[L],total=+p.p.replace(/\s/g,'');
+  return `<div class="inst" data-total="${total}"><div class="inst-top"><span class="inst-lbl"><i>Kaspi</i>${t.lbl}</span><span class="inst-seg">${[6,12].map(n=>`<button data-inst="${n}" aria-pressed="${n===INST}">${n} ${t.m}</button>`).join('')}</span></div><div class="inst-val">${fmtT(total/INST)}<small>${t.mo}</small></div><div class="inst-note">${t.note(INST)}</div></div>`}
+function tween(el,from,to){const t0=performance.now(),d=450,mo=el.querySelector('small').outerHTML;
+  const step=now=>{const k=Math.min(1,(now-t0)/d),e=1-Math.pow(1-k,3);el.innerHTML=fmtT(from+(to-from)*e)+mo;if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-inst]');if(!b)return;const n=+b.dataset.inst;if(n===INST)return;const old=INST;INST=n;
+  document.querySelectorAll('.inst').forEach(box=>{const tot=+box.dataset.total;box.querySelectorAll('[data-inst]').forEach(x=>x.setAttribute('aria-pressed',+x.dataset.inst===INST));tween(box.querySelector('.inst-val'),tot/old,tot/INST);box.querySelector('.inst-note').textContent=IT[L].note(INST)})});
 function planHTML(p){
   const t=T[L];
   const price=p.rows
     ? `<div class="ge-rows">${t[p.rows].map((r,i)=>`<div class="ge-row"><span>${r}</span><b>${p.prices[i]} <small>${t.perMonth}</small></b></div>`).join('')}</div><div class="deals">${t[p.deals].map(d=>`<span class="deal">${d} <i>−10%</i></span>`).join('')}</div>`
-    : `<div class="price">${p.p}<small>₸</small></div>`;
+    : `<div class="price">${p.p}<small>₸</small></div>${instHTML(p)}`;
   return `<article class="plan${p.solo?' solo':''}">
     <div class="top"><h3>${p.n}</h3><span class="fmt">${t[fmt]}</span></div>
     <p class="who-line">${t[p.w]}</p>
@@ -739,7 +805,7 @@ const FAQ={
 ru:{k:'Частые вопросы',h2:'Отвечаем до первого урока',p:'Не нашли свой вопрос? Напишите нам, ответим в WhatsApp.',btn:'Задать вопрос',items:[
  ['Как узнать свой уровень и с чего начать? Есть бесплатное тестирование?','Да. Запишитесь на бесплатный пробный урок: преподаватель определит ваш уровень, узнает ваши цели и подскажет, с какого курса лучше начать.'],
  ['За сколько времени я подготовлюсь к IELTS на нужный балл?','Это зависит от вашего текущего уровня и от того, какой балл вам нужен. Один интенсив IELTS длится 2 месяца. На пробном уроке мы оценим ваш уровень и честно скажем, сколько времени понадобится до вашей цели.'],
- ['Сколько стоит обучение и что входит в цену?','Интенсивы IELTS стоят от 126 000 ₸ за 2 месяца, General English от 32 000 ₸ в месяц. В зависимости от тарифа в цену входят доступ к платформе, материалы, пробные экзамены, спикинг клаб с носителем языка и проверка эссе. Все тарифы есть в разделе <a href="#courses">«Курсы и цены»</a>. Какой подойдёт именно вам, разберём на пробном уроке: всё зависит от ваших целей.'],
+ ['Сколько стоит обучение и что входит в цену?','Интенсивы IELTS стоят от 126 000 ₸ за 2 месяца, General English от 32 000 ₸ в месяц. В зависимости от тарифа в цену входят доступ к платформе, материалы, пробные экзамены, спикинг клаб с носителем языка и проверка эссе. Интенсивы IELTS можно оплатить в рассрочку Kaspi на 6 или 12 месяцев. Все тарифы есть в разделе <a href="#courses">«Курсы и цены»</a>. Какой подойдёт именно вам, разберём на пробном уроке: всё зависит от ваших целей.'],
  ['Какой формат занятий: группа или индивидуально, онлайн или офлайн?','Есть все варианты: групповые и индивидуальные занятия, офлайн в наших филиалах и онлайн из любого города. В группе не больше 8 человек, поэтому преподаватель успевает уделить внимание каждому.'],
  ['Кто преподаватели? Есть ли носители языка?','Все преподаватели прошли тщательный отбор: у каждого IELTS не ниже 8.0 и большой опыт преподавания. В ряде тарифов спикинг клабы и занятия по Speaking ведут носители языка.'],
  ['Есть ли пробные экзамены в формате настоящего IELTS?','Да. Пробные экзамены проходят в формате настоящего IELTS, с проверкой Writing и Speaking. Их количество зависит от тарифа: в Standard один, в Special четыре, в Premium и Individual восемь.'],
@@ -750,7 +816,7 @@ ru:{k:'Частые вопросы',h2:'Отвечаем до первого у�
 kz:{k:'Жиі қойылатын сұрақтар',h2:'Алғашқы сабаққа дейін жауап береміз',p:'Сұрағыңызды таппадыңыз ба? Бізге жазыңыз, WhatsApp-та жауап береміз.',btn:'Сұрақ қою',items:[
  ['Деңгейімді қалай білемін және неден бастаймын? Тегін тестілеу бар ма?','Иә. Тегін сынақ сабаққа жазылыңыз: мұғалім деңгейіңізді анықтап, мақсаттарыңызды біліп, қай курстан бастаған дұрыс екенін айтады.'],
  ['IELTS-ке қажетті балға қанша уақытта дайындала аламын?','Бұл қазіргі деңгейіңізге және қандай балл керек екеніне байланысты. Бір IELTS интенсиві 2 айға созылады. Сынақ сабақта деңгейіңізді бағалап, мақсатыңызға жету үшін қанша уақыт керек екенін ашық айтамыз.'],
- ['Оқу қанша тұрады және бағаға не кіреді?','IELTS интенсивтері 2 айға 126 000 ₸-ден, General English айына 32 000 ₸-ден басталады. Тарифке байланысты бағаға платформаға қолжетімділік, материалдар, сынақ емтихандар, тіл тасушымен спикинг клубы және эссе тексеру кіреді. Барлық тарифтер <a href="#courses">«Курстар мен бағалар»</a> бөлімінде. Сізге қайсысы сәйкес келетінін сынақ сабақта талқылаймыз: бәрі мақсатыңызға байланысты.'],
+ ['Оқу қанша тұрады және бағаға не кіреді?','IELTS интенсивтері 2 айға 126 000 ₸-ден, General English айына 32 000 ₸-ден басталады. Тарифке байланысты бағаға платформаға қолжетімділік, материалдар, сынақ емтихандар, тіл тасушымен спикинг клубы және эссе тексеру кіреді. IELTS интенсивтерін Kaspi арқылы 6 немесе 12 айға бөліп төлеуге болады. Барлық тарифтер <a href="#courses">«Курстар мен бағалар»</a> бөлімінде. Сізге қайсысы сәйкес келетінін сынақ сабақта талқылаймыз: бәрі мақсатыңызға байланысты.'],
  ['Сабақ форматы қандай: топпен бе, жеке ме, онлайн ба, офлайн ба?','Барлық нұсқа бар: топтық және жеке сабақтар, филиалдарымызда офлайн және кез келген қаладан онлайн. Топта 8 адамнан аспайды, сондықтан мұғалім әрқайсысына көңіл бөле алады.'],
  ['Мұғалімдер кімдер? Тіл тасушылар бар ма?','Барлық мұғалімдеріміз мұқият іріктеуден өткен: әрқайсысының IELTS балы 8.0-ден төмен емес және тәжірибесі мол. Кейбір тарифтерде спикинг клубтары мен Speaking сабақтарын тіл тасушылар жүргізеді.'],
  ['Нақты IELTS форматындағы сынақ емтихандар бар ма?','Иә. Сынақ емтихандар нақты IELTS форматында өтеді, Writing пен Speaking тексеріледі. Саны тарифке байланысты: Standard-та біреу, Special-да төртеу, Premium мен Individual-да сегізеу.'],
@@ -761,7 +827,7 @@ kz:{k:'Жиі қойылатын сұрақтар',h2:'Алғашқы сабақ
 en:{k:'FAQ',h2:'Answers before your first lesson',p:'Didn’t find your question? Message us and we’ll reply on WhatsApp.',btn:'Ask a question',items:[
  ['How do I find out my level and where should I start? Is there a free test?','Yes. Book a free trial lesson: a teacher will assess your level, learn about your goals and recommend the right course to start with.'],
  ['How long will it take to reach the IELTS score I need?','It depends on your current level and the score you’re aiming for. One IELTS intensive lasts 2 months. At the trial lesson we’ll assess your level and tell you honestly how much time you’ll need to reach your goal.'],
- ['How much does it cost and what’s included?','IELTS intensives start at 126 000 ₸ for 2 months, and General English starts at 32 000 ₸ a month. Depending on the plan, the price includes platform access, materials, mock exams, a speaking club with a native speaker and essay checking. Every plan is listed under <a href="#courses">Courses &amp; prices</a>. We’ll help you pick the right one at the trial lesson, since it depends on your goals.'],
+ ['How much does it cost and what’s included?','IELTS intensives start at 126 000 ₸ for 2 months, and General English starts at 32 000 ₸ a month. Depending on the plan, the price includes platform access, materials, mock exams, a speaking club with a native speaker and essay checking. IELTS intensives can be paid in Kaspi installments over 6 or 12 months. Every plan is listed under <a href="#courses">Courses &amp; prices</a>. We’ll help you pick the right one at the trial lesson, since it depends on your goals.'],
  ['What formats do you offer: group or private, online or in person?','All of them: group and private lessons, in person at our branches and online from any city. Groups have no more than 8 students, so the teacher has time for everyone.'],
  ['Who are the teachers? Do you have native speakers?','All our teachers went through careful selection: each has an IELTS score of at least 8.0 and plenty of teaching experience. In some plans, speaking clubs and Speaking sessions are led by native speakers.'],
  ['Do you run mock exams in the real IELTS format?','Yes. Mock exams follow the real IELTS format, with Writing and Speaking assessed. The number depends on your plan: one in Standard, four in Special, eight in Premium and Individual.'],
@@ -928,10 +994,23 @@ setLang(L);
 let skipped=false;try{skipped=!!sessionStorage.getItem('kf-skip')}catch(e){}
 if(!CITY&&!skipped)setTimeout(openModal,700);
 
+/* ---------- ticker ---------- */
+const TK={ru:['Преподаватели IELTS 8.0+','4.9 в 2ГИС','Астана','Алматы','Шымкент','Онлайн по всему Казахстану','Рассрочка Kaspi','Бесплатный пробный урок'],
+ kz:['IELTS 8.0+ мұғалімдер','2ГИС-те 4.9','Астана','Алматы','Шымкент','Бүкіл Қазақстан бойынша онлайн','Kaspi бөліп төлеу','Тегін сынақ сабақ'],
+ en:['IELTS 8.0+ teachers','4.9 on 2GIS','Astana','Almaty','Shymkent','Online across Kazakhstan','Kaspi installments','Free trial lesson']};
+function renderTicker(){const one=TK[L].map(x=>`<span>${x}</span>`).join('');document.getElementById('ticker').innerHTML=one+one}
+renderTicker();
+document.querySelectorAll('[data-lang],[data-cmlang]').forEach(b=>b.addEventListener('click',()=>setTimeout(renderTicker,200)));
+
+/* ---------- scroll progress ---------- */
+const sb=document.getElementById('scrollBar');let sbRaf=0;
+addEventListener('scroll',()=>{if(sbRaf)return;sbRaf=requestAnimationFrame(()=>{sbRaf=0;const h=document.documentElement.scrollHeight-innerHeight;sb.style.setProperty('--sp',h>0?(scrollY/h).toFixed(4):0)})},{passive:true});
+
 /* ---------- scroll reveal ---------- */
 if('IntersectionObserver' in window){
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('pending');io.unobserve(e.target)}}),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>{if(el.getBoundingClientRect().top>innerHeight){el.classList.add('pending');io.observe(el)}});
+  document.querySelectorAll('.stg').forEach(el=>{[...el.children].forEach((c,i)=>c.style.setProperty('--i',Math.min(i,8)));if(el.getBoundingClientRect().top>innerHeight){el.classList.add('pending');io.observe(el)}});
 }
 </script>
 
